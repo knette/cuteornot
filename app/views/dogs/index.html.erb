@@ -1,2 +1,19 @@
-<h1>Dogs#index</h1>
+<h1>Vote on this random pup! </h1>
 <p>Find me in app/views/dogs/index.html.erb</p>
+
+Dog.limit(1).order("RANDOM()")
+
+<% @dogs.each do |d| %>
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="<%=d.picture%>" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"><%= d.name %></h5>
+    <p class="card-text">Vote for me!</p>
+    <%= link_to("Voting Stats", "/dogs/#{d.id}", class: "btn btn-primary") %> 
+  </div>
+</div>
+<% end %>
+<% if logged_in?%>
+<%= link_to("New Dog", "/dogs/new", class: "btn btn-primary") %>
+<% end %>
+</ul>
