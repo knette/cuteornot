@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Cuteornot</title>
+    <title>Vote on Cute Dogs!</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag asset_path('/assets/images/favicon.ico'), :rel => 'icon', :type =>  'image/png' %>
+
   </head>
 
   <body>
+      <% if logged_in? %>
+      <%= link_to "Logout", logout_path, {method: "DELETE"} %>
+    <% else %>
+      <%= link_to "Login", new_session_path %>
+    <% end %>
+    <div class="container">
     <%= yield %>
+  </div>
   </body>
 </html>

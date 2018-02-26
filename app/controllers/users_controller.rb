@@ -1,8 +1,11 @@
 class UsersController < ApplicationController
+  before_action :authorize, only: [:show, :edit, :update, :destroy]
+  
   def index
   end
 
   def show
+    @user = User.find(params[:id])
   end
 
   def new
@@ -25,6 +28,12 @@ class UsersController < ApplicationController
   end
 
   def destroy
+  end
+
+  def authorize
+    unless logged_in?
+      redirect_to new_session_path
+    end
   end
 
   private
