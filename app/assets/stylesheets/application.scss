@@ -1,1 +1,10 @@
 @import "bootstrap";
+img {
+    max-width: 400px;
+}
+.card {
+    display: inline-block;
+    margin: 5px; 
+    vertical-align: top;
+    height: 590px;
+}
