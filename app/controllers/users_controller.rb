@@ -6,6 +6,12 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    if @user = current_user 
+      @dogs = Dog.where(user_id:@user.id)
+    else
+      redirect_to root_path
+    end
+    
   end
 
   def new
@@ -15,7 +21,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save 
-        session[:user_id] = @user.index
+        session[:user_id] = @user.id
         redirect_to user_path @user.id
     else redirect_to new_user_path
     end

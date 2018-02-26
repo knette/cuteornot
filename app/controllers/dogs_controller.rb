@@ -33,7 +33,7 @@ class DogsController < ApplicationController
 
   private
   def post_params
-    return params.require(:picture).permit(:name)
+    return params.require(:dog).permit(:picture, :name)
   end
 
 end
