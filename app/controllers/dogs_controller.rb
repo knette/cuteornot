@@ -5,10 +5,11 @@ class DogsController < ApplicationController
 
   def show
     @dog = Dog.find(params[:id])
+    @user = User.find(@dog.user_id) 
   end
 
   def new
-    @dog = current_user.dog.new
+    @dog = current_user.dogs.new
   end
 
   def create

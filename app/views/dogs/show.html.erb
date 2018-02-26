@@ -1,5 +1,6 @@
 <h1><%= @dog.name %></h1>
 <%= image_tag(@dog.picture) %>
+Uploaded by: <%= @user.name %>
 <ul>
     <li><%= link_to("Back", "/dogs/") %></li>
 </ul>
