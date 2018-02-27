@@ -6,6 +6,10 @@ class DogsController < ApplicationController
   def show
     @dog = Dog.find(params[:id])
     @user = User.find(@dog.user_id) 
+    @total_upvotes = @dog.get_upvotes.size
+    @score = (@dog.get_upvotes.size.to_f/(@dog.get_upvotes.size.to_f + @dog.get_downvotes.size.to_f)) * 100
+    rescue ZeroDivisionError
+    0 
   end
 
   def new
@@ -41,17 +45,16 @@ class DogsController < ApplicationController
   def upvote
     @dog = Dog.find(params[:id])
     @dog.upvote_by current_user
-    redirect_to dog_path(@dog.id)
   end
 
   def downvote
     @dog = Dog.find(params[:id])
     @dog.downvote_by current_user
-    redirect_to dog_path(@dog.id)
   end
 
   def score
-    @score = self.get_upvotes.size - self.get_downvotes.size
+    @dog = Dog.find(params[:id])
+    @score = @dog.get_upvotes.size - @dog.get_downvotes.size
   end
 
   private

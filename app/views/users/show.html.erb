@@ -15,7 +15,7 @@
         <%= link_to("Edit", "/dogs/#{d.id}/edit", class: "btn btn-primary") %> 
         <%= link_to("Delete", "/dogs/#{d.id}", {method: 'delete', data: {confirm: "Are you sure?"}}) %>
         <div class="progress">
-          <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%= (@dog.get_upvotes.size + @dog.get_upvotes.size) %>% </div>
+          <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%= @score %>% </div>
         </div>
       </div>
     </div>
