@@ -1,10 +1,14 @@
 <h1><%= @dog.name %></h1>
 <%= image_tag(@dog.picture) %>
 <p>Uploaded by: <%= @user.name %></p>
-<p>Overall Cute Votes!: <%= @total_upvotes  %></p>
-
-
-
+<%= link_to like_dog_path(@dog.id), method: :put do %>
+Like
+<%= @dog.get_upvotes.size %>
+<% end %>
+<%= link_to dislike_dog_path(@dog), method: :put do %>
+Dislike
+<%= @dog.get_downvotes.size %>
+<% end %>
 <p>% of Cute Votes</p>
 <div class="progress">
     <div class="progress-bar" role="progressbar" style="width:<%= @score %>%;" aria-valuenow="<%=@score%>" aria-valuemin="0" aria-valuemax="100"><%= @score %>% </div>

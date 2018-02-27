@@ -1,36 +1,19 @@
-<h1>Vote on this random pup! </h1>
+<h1>Is this Dog cute or not? Vote below! </h1>
 
 <% @dogs.limit(1).order("Random()").each do |d| %>
 <div class="card centerdiv">
   <img class="card-img-top" src="<%=d.picture%>" alt="dog picture">
   <div class="card-body">
-    <h3><%= d.name %></h3>
-    <p>Vote for me!</p>
+    <h2><%= d.name %></h2>
     <div>
       <% if current_user.liked? d %>
-      <%= link_to("Voted Cute", like_dog_path(d.id), method: :put, class: "btn btn-outline-success") %> 
+      <%= link_to("You Voted Cute", like_dog_path(d.id), method: :put, class: "btn btn-outline-success") %> 
       <% else%>
       <%= link_to("Cute", like_dog_path(d.id), method: :put, class: "btn btn-success cute") %> 
         <%= link_to("Not", dislike_dog_path(d.id), method: :put, class: "btn btn-warning not") %>
-     <% end %>
-
-      <%= link_to like_dog_path(d.id), method: :put do %>
-         Like
-        <%= d.get_upvotes.size %>
-      <% end %>
-      <%= link_to dislike_dog_path(d.id), method: :put do %>
-        Dislike
-        <%= d.get_downvotes.size %>
-      <% end %>
-<% if logged_in? %>
-  <%= link_to like_dog_path(d.id), method: :put, class: "btn btn-secondary" do %>
-     <span class="glyphicon glyphicon-heart"></span>
-     <%= d.get_upvotes.size %>
      <% end %>
     </div>
   </div>
 </div>
 <% end %>
 </ul>
-<i class="fa fa-heart"></i>
-<% end %>

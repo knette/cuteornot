@@ -17,18 +17,22 @@ body {
 .brown {
     background-color: brown;
 }
+.btn-outline-success{
+    width: 100%;
+}
 .cute, .not, .btn-outline-success{
-    width: 49%;
     font-size: 30px;
     margin: auto 0;
-    
 }
 .centerdiv {
     margin: auto 0;
 }
-h1 {
+h1, h2 {
     text-align: center;
 }
 .alert {
     text-align: center;
+}
+.cute, .not{
+    width: 49.5%;
 }
