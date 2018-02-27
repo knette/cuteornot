@@ -6,9 +6,9 @@
   <div class="card-body">
     <h5 class="card-title"><%= d.name %></h5>
     <p class="card-text">Vote for me!</p>
-    <%= link_to("Upvote", like_dog_path(d.id), method: :put, class: "btn btn-success") %> 
-    <%= link_to("Downvote", like_dog_path(d.id), method: :put, class: "btn btn-warning") %>
-    <%= link_to("Voting Stats", "/dogs/#{d.id}", class: "btn btn-primary") %> 
+    <%= link_to("Cute", like_dog_path(d.id), method: :put, class: "btn btn-success") %> 
+    <%= link_to("Not", like_dog_path(d.id), method: :put, class: "btn btn-warning") %>
+    <%= link_to("Voting Stats", "/dogs/#{d.id}", class: "btn btn-primary") %>  
   </div>
 </div>
 <% end %>

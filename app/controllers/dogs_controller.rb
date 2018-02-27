@@ -51,7 +51,7 @@ class DogsController < ApplicationController
   end
 
   def score
-    self.get_upvotes.size - self.get_downvotes.size
+    @score = self.get_upvotes.size - self.get_downvotes.size
   end
 
   private
