@@ -3,5 +3,10 @@ Rails.application.routes.draw do
   resources :users  
   delete '/logout' => 'sessions#destroy', as: :logout
   resources :sessions, only: [:new, :create]
-  resources :dogs
+  resources :dogs do
+    member do
+      put "like", to: "dogs#upvote"
+      put "dislike", to: "dogs#downvote"
+    end
+  end
 end

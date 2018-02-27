@@ -31,6 +31,18 @@ class DogsController < ApplicationController
     redirect_to "/dogs"
   end
 
+  def upvote
+    @dog = Dog.find(params[:id])
+    @dog.upvote_by current_user
+    redirect_to dog_path(@dog.id)
+  end
+
+  def downvote
+    @dog = Dog.find(params[:id])
+    @dog.downvote_by current_user
+    redirect_to dog_path(@dog.id)
+  end
+
   private
   def post_params
     return params.require(:dog).permit(:picture, :name)
