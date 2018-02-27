@@ -6,5 +6,7 @@ Trello - https://trello.com/b/1zqOcRps/cute-or-not-dogs
 
 
 Sources
+Acts as votable Gem
+https://masteruby.github.io/weekly-rails/2014/08/05/how-to-add-voting-to-rails-app.html#.WpRXlRPwbOQ
 https://github.com/ryanto/acts_as_votable
 favicon generator https://www.favicon-generator.org/ 

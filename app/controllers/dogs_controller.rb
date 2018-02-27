@@ -43,6 +43,10 @@ class DogsController < ApplicationController
     redirect_to dog_path(@dog.id)
   end
 
+  def score
+    self.get_upvotes.size - self.get_downvotes.size
+  end
+
   private
   def post_params
     return params.require(:dog).permit(:picture, :name)
