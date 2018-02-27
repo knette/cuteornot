@@ -1,6 +1,7 @@
 <h1><%= @dog.name %></h1>
 <%= image_tag(@dog.picture) %>
-Uploaded by: <%= @user.name %>
+<p>Uploaded by: <%= @user.name %></p>
+<p>Overall Votes: <%= @dog.get_upvotes.size - @dog.get_downvotes.size %></p>
 <ul>
     <li><%= link_to("Back", "/dogs/") %></li>
 </ul>

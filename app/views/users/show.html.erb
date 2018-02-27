@@ -12,7 +12,8 @@
         <h5 class="card-title"><%= d.name %></h5>
         <p class="card-text">I'm yours!</p>
         <%= link_to(d.name, "/dogs/#{d.id}", class: "btn btn-primary") %> 
-        <%= link_to("Edit", edit_dog_path, class: "btn btn-primary") %> 
+        <%= link_to("Edit", "/dogs/#{d.id}/edit", class: "btn btn-primary") %> 
+        <%= link_to("Delete", "/dogs/#{d.id}", {method: 'delete', data: {confirm: "Are you sure?"}}) %>
       </div>
     </div>
     <% end %>
