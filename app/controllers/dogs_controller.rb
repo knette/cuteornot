@@ -45,11 +45,13 @@ class DogsController < ApplicationController
   def upvote
     @dog = Dog.find(params[:id])
     @dog.upvote_by current_user
+    redirect_back(fallback_location: root_path)
   end
 
   def downvote
     @dog = Dog.find(params[:id])
     @dog.downvote_by current_user
+    redirect_back(fallback_location: root_path)
   end
 
   def score

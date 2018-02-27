@@ -9,6 +9,14 @@
     <div>
       <%= link_to("Cute", like_dog_path(d.id), method: :put, class: "btn btn-success cute") %> 
       <%= link_to("Not", dislike_dog_path(d.id), method: :put, class: "btn btn-warning not") %>
+      <%= link_to like_dog_path(d.id), method: :put do %>
+  Like
+  <%= d.get_upvotes.size %>
+<% end %>
+<%= link_to dislike_dog_path(d.id), method: :put do %>
+  Dislike
+  <%= d.get_downvotes.size %>
+<% end %>
     </div>
     <%= link_to("Voting Stats", "/dogs/#{d.id}", class: "btn btn-primary") %>  
   </div>
