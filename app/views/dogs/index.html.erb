@@ -1,13 +1,13 @@
 <h1>Vote on this random pup! </h1>
-<p>app/views/dogs/index.html.erb</p>
 
-<% @dogs.each do |d| %>
-<div class="card" style="width: 18rem;">
+<% @dogs.limit(1).order("Random()").each do |d| %>
+<div class="card" style="width: 40rem;">
   <img class="card-img-top" src="<%=d.picture%>" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title"><%= d.name %></h5>
     <p class="card-text">Vote for me!</p>
     <%= link_to("Upvote", like_dog_path(d.id), method: :put, class: "btn btn-success") %> 
+    <%= link_to("Downvote", like_dog_path(d.id), method: :put, class: "btn btn-warning") %>
     <%= link_to("Voting Stats", "/dogs/#{d.id}", class: "btn btn-primary") %> 
   </div>
 </div>
@@ -16,5 +16,3 @@
 <%= link_to("New Dog", "/dogs/new", class: "btn btn-primary") %>
 <% end %>
 </ul>
-
-Dog.limit(1).order("RANDOM()")

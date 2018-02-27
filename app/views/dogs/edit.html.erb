@@ -1,2 +1,6 @@
-<h1>Dogs#edit</h1>
-<p>Find me in app/views/dogs/edit.html.erb</p>
+<h1>Edit <%= @dog.name%></h1>
+<%= form_for(@dog) do |f| %>
+    <%= f.text_field(:name, {placeholder: "Name"}) %>
+    <%= f.text_field(:picture, {placeholder: "Image URL"}) %>
+    <%= f.submit("Update Doggo") %>
+<% end %>

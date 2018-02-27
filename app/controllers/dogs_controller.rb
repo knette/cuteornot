@@ -23,6 +23,13 @@ class DogsController < ApplicationController
   end
 
   def update
+    @dog = Dog.find(params[:id])
+    if @dog.update_attributes(post_params)
+      @dog.save
+      redirect_to dog_path(@dog.id)
+    else
+      render 'edit'
+    end
   end
 
   def destroy

@@ -2,7 +2,7 @@
 
 <%= link_to("Submit a Dog", "/dogs/new", class: "btn btn-primary") %>
 
-Your pups: 
+<h2>Your pups: </h2>
 <ul>
     <% if @user = current_user %>
         <%  @dogs.each do |d| %>
@@ -10,8 +10,9 @@ Your pups:
       <img class="card-img-top" src="<%=d.picture%>" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title"><%= d.name %></h5>
-        <p class="card-text">vote for meeow.</p>
+        <p class="card-text">I'm yours!</p>
         <%= link_to(d.name, "/dogs/#{d.id}", class: "btn btn-primary") %> 
+        <%= link_to("Edit", edit_dog_path, class: "btn btn-primary") %> 
       </div>
     </div>
     <% end %>
@@ -19,4 +20,17 @@ Your pups:
     <%= link_to("new dog", "/dogs/new", class: "btn btn-primary") %>
     </ul>
 
-Dogs you thought were cute: 
+<h2>Dogs you thought were cute: </h2>
+
+<ul>
+<% @user.find_up_voted_items.each do |d| %>
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="<%=d.picture%>" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"><%= d.name %></h5>
+    <p class="card-text">Thanks for your vote!</p>
+    <%= link_to(d.name, "/dogs/#{d.id}", class: "btn btn-primary") %> 
+  </div>
+</div>
+<% end %>
+</ul>
