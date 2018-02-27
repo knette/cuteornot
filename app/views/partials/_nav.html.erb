@@ -1,27 +1,32 @@
-<ul class="nav">
-    <li class="nav-item">
-        <a class="nav-link active" href="/">Home</a>
-      </li>
-  <% if logged_in? %>
-    <li class="nav-item">
-        <%= link_to current_user.name, user_path(current_user.id), :class => "nav-link active"%>
-      </li>
-      <li class="nav-item">
-          <%= link_to "Logout", logout_path, {method: "DELETE"} %>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">Cute Or Not</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <% if logged_in? %>
+        <li class="nav-item">
+          <%= link_to current_user.name, user_path(current_user.id), :class => "nav-link"%>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/dogs/new">Add new Pup</a>
+            <%= link_to "Logout", logout_path, {method: "DELETE"} %>
           </li>
-        <% else %> 
-        
-    <li class="nav-item">
-        <%= link_to "Login", new_session_path, class: "nav-link active" %>
-    </li>
-    <li class="nav-item">
-        <%= link_to "Sign Up", new_user_path, class: "nav-link active" %>
-    </li>
-    <%end%>
-
-  </ul>
-
-  
+        <li class="nav-item">
+          <a class="nav-link" href="/dogs/new">Add new Pup</a>
+          <% else %> 
+        </li>
+        <li class="nav-item">
+            <%= link_to "Login", new_session_path, class: "nav-link" %>
+          </li>
+        <li class="nav-item">
+            <%= link_to "Sign Up", new_user_path, class: "nav-link" %>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
