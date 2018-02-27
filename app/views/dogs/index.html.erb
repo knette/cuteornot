@@ -7,22 +7,30 @@
     <h3><%= d.name %></h3>
     <p>Vote for me!</p>
     <div>
+      <% if current_user.liked? d %>
+      <%= link_to("Voted Cute", like_dog_path(d.id), method: :put, class: "btn btn-outline-success") %> 
+      <% else%>
       <%= link_to("Cute", like_dog_path(d.id), method: :put, class: "btn btn-success cute") %> 
-      <%= link_to("Not", dislike_dog_path(d.id), method: :put, class: "btn btn-warning not") %>
+        <%= link_to("Not", dislike_dog_path(d.id), method: :put, class: "btn btn-warning not") %>
+     <% end %>
+
       <%= link_to like_dog_path(d.id), method: :put do %>
-  Like
-  <%= d.get_upvotes.size %>
-<% end %>
-<%= link_to dislike_dog_path(d.id), method: :put do %>
-  Dislike
-  <%= d.get_downvotes.size %>
-<% end %>
+         Like
+        <%= d.get_upvotes.size %>
+      <% end %>
+      <%= link_to dislike_dog_path(d.id), method: :put do %>
+        Dislike
+        <%= d.get_downvotes.size %>
+      <% end %>
+<% if logged_in? %>
+  <%= link_to like_dog_path(d.id), method: :put, class: "btn btn-secondary" do %>
+     <span class="glyphicon glyphicon-heart"></span>
+     <%= d.get_upvotes.size %>
+     <% end %>
     </div>
-    <%= link_to("Voting Stats", "/dogs/#{d.id}", class: "btn btn-primary") %>  
   </div>
 </div>
 <% end %>
-<% if logged_in?%>
-<%= link_to("New Dog", "/dogs/new", class: "btn btn-primary") %>
-<% end %>
 </ul>
+<i class="fa fa-heart"></i>
+<% end %>

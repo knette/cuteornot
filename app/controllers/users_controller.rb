@@ -8,7 +8,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user = current_user 
       @dogs = Dog.where(user_id:@user.id)
-      ## @dog = Dog.find(params[dog_id])  ##WTF this only works when its on users not = 1 since we deleted the first dog. 
     else
       redirect_to root_path
     end

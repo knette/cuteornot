@@ -56,4 +56,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'acts_as_votable', '~> 0.11.1'
+gem 'font-awesome-rails'
 ruby '2.5.0'
