@@ -1,4 +1,11 @@
 @import "bootstrap";
+body {
+    background: url('/app/assets/images/dust_scratches.png');
+    background-repeat: repeat;
+}
+.container {
+    align-content: center;
+}
 .card {
     display: inline-block;
     margin: 5px; 
@@ -8,4 +15,15 @@
 .nav-item {
     list-style: none;
     display: inline-block;
+}
+.pink {
+    background-color: pink;
+}
+.brown {
+    background-color: brown;
+}
+.cute, .not{
+    width: 40%;
+    font-size: 30px;
+    align-content: center;
 }

@@ -10,3 +10,4 @@ Acts as votable Gem
 https://masteruby.github.io/weekly-rails/2014/08/05/how-to-add-voting-to-rails-app.html#.WpRXlRPwbOQ
 https://github.com/ryanto/acts_as_votable
 favicon generator https://www.favicon-generator.org/ 
+background https://www.toptal.com/designers/subtlepatterns/ 
