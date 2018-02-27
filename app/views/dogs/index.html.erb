@@ -1,13 +1,15 @@
 <h1>Vote on this random pup! </h1>
 
 <% @dogs.limit(1).order("Random()").each do |d| %>
-<div class="card" style="width: 40rem;">
-  <img class="card-img-top" src="<%=d.picture%>" alt="Card image cap">
+<div class="card centerdiv">
+  <img class="card-img-top" src="<%=d.picture%>" alt="dog picture">
   <div class="card-body">
-    <h5 class="card-title"><%= d.name %></h5>
-    <p class="card-text">Vote for me!</p>
-    <%= link_to("Cute", like_dog_path(d.id), method: :put, class: "btn btn-success cute") %> 
-    <%= link_to("Not", dislike_dog_path(d.id), method: :put, class: "btn btn-warning not") %>
+    <h3><%= d.name %></h3>
+    <p>Vote for me!</p>
+    <div>
+      <%= link_to("Cute", like_dog_path(d.id), method: :put, class: "btn btn-success cute") %> 
+      <%= link_to("Not", dislike_dog_path(d.id), method: :put, class: "btn btn-warning not") %>
+    </div>
     <%= link_to("Voting Stats", "/dogs/#{d.id}", class: "btn btn-primary") %>  
   </div>
 </div>
