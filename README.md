@@ -15,3 +15,4 @@ http://www.colorzilla.com/gradient-editor/
 http://www.colorzilla.com/
 https://mattbrictson.com/dynamic-rails-error-pages
 https://wall.alphacoders.com/big.php?i=102211
+https://css-tricks.com/perfect-full-page-background-image/

@@ -3,11 +3,11 @@
         <div class="card-body">
           <h2><%= @dog.name %></h2>
           <%= link_to like_dog_path(@dog.id), method: :put do %>
-          Like
+          Like Votes: 
           <%= @dog.get_upvotes.size %>
           <% end %>
           <%= link_to dislike_dog_path(@dog), method: :put do %>
-          Dislike
+          Not Votes: 
           <%= @dog.get_downvotes.size %>
           <% end %>
           <p>Uploaded by: <%= @user.name %></p>
