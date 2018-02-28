@@ -4,7 +4,9 @@
     <% if @user = current_user %>
         <%  @dogs.each do |d| %>
     <div class="card pup-card" style="width: 260px;">
-      <img class="card-img-top" src="<%=d.picture%>" alt="Card image cap">
+      <div class="image-box">
+          <img class="card-img-top" src="<%=d.picture%>" alt="Card image cap">
+      </div>
       <div class="card-block">
         <h5 class="card-title"><%= d.name %></h5>
         <%= link_to("Stats", "/dogs/#{d.id}", class: "btn btn-primary") %> 
@@ -19,7 +21,10 @@
 
 <% @user.find_up_voted_items.each do |d| %>
 <div class="card pup-card text-center" style="width: 260px;">
-  <img class="card-img-top" src="<%=d.picture%>" alt="Card image cap">
+  <div class="image-box">
+      <img class="card-img-top" src="<%=d.picture%>" alt="Card image cap">
+  </div>
+  
   <div class="card-body">
     <h5 class="card-title"><%= d.name %></h5>
     <p class="card-text">Thanks for your vote!</p>

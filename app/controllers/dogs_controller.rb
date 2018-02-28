@@ -1,5 +1,6 @@
 class DogsController < ApplicationController
   before_action :authorize, only: [:edit, :update, :destroy]
+  before_action :authorize_edit_view, only: :edit 
 
   def index
     @dogs = Dog.all
@@ -10,6 +11,9 @@ class DogsController < ApplicationController
     @user = User.find(@dog.user_id) 
     @total_upvotes = @dog.get_upvotes.size
     @score = (@dog.get_upvotes.size.to_f/(@dog.get_upvotes.size.to_f + @dog.get_downvotes.size.to_f)) * 100
+    if @score.nan?
+      @score = 0
+    end
     rescue ZeroDivisionError
     0 
   end
@@ -66,6 +70,17 @@ class DogsController < ApplicationController
     unless logged_in?
       redirect_to new_session_path
     end
+  end
+
+  def authorize_edit_view
+    @dog = Dog.find(params[:id])
+    if @dog.user != current_user 
+      redirect_to new_dog_path
+    end
+  end
+
+  def top_dogs
+    @dogs = Dog.where
   end
 
   private
