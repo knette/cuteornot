@@ -4,10 +4,9 @@
 <div class="card centerdiv">
   <img class="card-img-top" src="<%=d.picture%>" alt="dog picture">
   <div class="card-body">
-    <h2><%= d.name %></h2>
     <div>
-      <% if current_user.liked? d %>
-      <%= link_to("You Voted Cute", like_dog_path(d.id), method: :put, class: "btn btn-outline-success") %> 
+      <% if current_user and current_user.liked?(d) %>
+        <%= link_to("You Voted Cute", like_dog_path(d.id), method: :put, class: "btn btn-outline-success") %> 
       <% else%>
       <%= link_to("Cute", like_dog_path(d.id), method: :put, class: "btn btn-success cute") %> 
         <%= link_to("Not", dislike_dog_path(d.id), method: :put, class: "btn btn-warning not") %>
@@ -16,4 +15,3 @@
   </div>
 </div>
 <% end %>
-</ul>

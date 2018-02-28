@@ -1,18 +1,22 @@
-<h1><%= @dog.name %></h1>
-<%= image_tag(@dog.picture) %>
-<p>Uploaded by: <%= @user.name %></p>
-<%= link_to like_dog_path(@dog.id), method: :put do %>
-Like
-<%= @dog.get_upvotes.size %>
-<% end %>
-<%= link_to dislike_dog_path(@dog), method: :put do %>
-Dislike
-<%= @dog.get_downvotes.size %>
-<% end %>
-<p>% of Cute Votes</p>
-<div class="progress">
-    <div class="progress-bar" role="progressbar" style="width:<%= @score %>%;" aria-valuenow="<%=@score%>" aria-valuemin="0" aria-valuemax="100"><%= @score %>% </div>
-  </div>
+<div class="card centerdiv">
+        <img class="card-img-top" src="<%=@dog.picture%>" alt="dog picture">
+        <div class="card-body">
+          <h2><%= @dog.name %></h2>
+          <%= link_to like_dog_path(@dog.id), method: :put do %>
+          Like
+          <%= @dog.get_upvotes.size %>
+          <% end %>
+          <%= link_to dislike_dog_path(@dog), method: :put do %>
+          Dislike
+          <%= @dog.get_downvotes.size %>
+          <% end %>
+          <p>Uploaded by: <%= @user.name %></p>
+          <p>% of Cute Votes</p>
+          <div class="progress">
+              <div class="progress-bar" role="progressbar" style="width:<%= @score %>%;" aria-valuenow="<%=@score%>" aria-valuemin="0" aria-valuemax="100"><%= @score %>% </div>
+            </div>
+        </div>
+    </div>
 <ul>
     <li><%= link_to("Back", "/dogs/") %></li>
 </ul>
