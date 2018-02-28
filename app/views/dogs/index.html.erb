@@ -7,6 +7,8 @@
     <div>
       <% if current_user and current_user.liked?(d) %>
         <%= link_to("You Voted Cute", like_dog_path(d.id), method: :put, class: "btn btn-outline-success") %> 
+        <% elsif current_user and current_user.disliked?(d) %>
+        <%= link_to("You Voted Not", like_dog_path(d.id), method: :put, class: "btn btn-outline-warning") %> 
       <% else%>
       <%= link_to("Cute", like_dog_path(d.id), method: :put, class: "btn btn-success cute") %> 
         <%= link_to("Not", dislike_dog_path(d.id), method: :put, class: "btn btn-warning not") %>

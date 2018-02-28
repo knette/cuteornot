@@ -13,3 +13,5 @@ favicon generator https://www.favicon-generator.org/
 background https://www.toptal.com/designers/subtlepatterns/ 
 http://www.colorzilla.com/gradient-editor/
 http://www.colorzilla.com/
+https://mattbrictson.com/dynamic-rails-error-pages
+https://wall.alphacoders.com/big.php?i=102211

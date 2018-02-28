@@ -1,13 +1,12 @@
 @import "bootstrap";
 @import "font-awesome";
 body {
-   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,f8f9fa+23,ffefef+100 */
-background: #ffffff; /* Old browsers */
-background: -moz-linear-gradient(top, #ffffff 0%, #f8f9fa 23%, #ffefef 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top, #ffffff 0%,#f8f9fa 23%,#ffefef 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom, #ffffff 0%,#f8f9fa 23%,#ffefef 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffefef',GradientType=0 ); /* IE6-9 */
-font-family: 'Raleway', sans-serif;
+    background-image: url("https://images.alphacoders.com/102/102211.jpg");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+font-family: 'Nanum Myeongjo', serif;
 }
 .container {
     align-content: center;
@@ -16,10 +15,10 @@ font-family: 'Raleway', sans-serif;
     list-style: none;
     display: inline-block;
 }
-.btn-outline-success{
+.btn-outline-success, .btn-outline-warning{
     width: 100%;
 }
-.cute, .not, .btn-outline-success{
+.cute, .not, .btn-outline-success, .btn-outline-warning{
     font-size: 30px;
     margin: auto 0;
 }
@@ -30,7 +29,7 @@ h1, h2, .alert {
     width: 49.5%;
 }
 .navbar-brand{
-font-family: 'Julius Sans One', sans-serif;
+    font-family: 'Pacifico', cursive;
 }
 .card {
     margin: 5px; 
@@ -41,4 +40,6 @@ font-family: 'Julius Sans One', sans-serif;
 }
 .pup-card { 
 display: inline-block;
+height: 400px; 
+text-align: center;
 }

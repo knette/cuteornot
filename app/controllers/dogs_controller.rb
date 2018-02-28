@@ -56,6 +56,9 @@ class DogsController < ApplicationController
   def downvote
     @dog = Dog.find(params[:id])
     @dog.downvote_by current_user
+    if !logged_in?
+      flash[:warning] = "Login for your vote to count"
+      end
     redirect_back(fallback_location: root_path)
   end
 

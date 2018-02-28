@@ -3,7 +3,7 @@
 <h2>Your pups: </h2>
     <% if @user = current_user %>
         <%  @dogs.each do |d| %>
-    <div class="card pup-card" style="width: 18rem;">
+    <div class="card pup-card" style="width: 15rem;">
       <img class="card-img-top" src="<%=d.picture%>" alt="Card image cap">
       <div class="card-block">
         <h5 class="card-title"><%= d.name %></h5>
@@ -19,7 +19,7 @@
 <h2>Dogs you thought were cute: </h2>
 
 <% @user.find_up_voted_items.each do |d| %>
-<div class="card pup-card" style="width: 18rem;">
+<div class="card pup-card" style="width: 15rem;">
   <img class="card-img-top" src="<%=d.picture%>" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title"><%= d.name %></h5>
