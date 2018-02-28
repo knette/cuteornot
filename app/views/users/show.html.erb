@@ -1,40 +1,29 @@
 <h1>Welcome <%= @user.name %>!</h1>
 
-<%= link_to("Submit a Dog", "/dogs/new", class: "btn btn-primary") %>
-
 <h2>Your pups: </h2>
-<ul>
     <% if @user = current_user %>
         <%  @dogs.each do |d| %>
-    <div class="card" style="width: 18rem;">
+    <div class="card pup-card" style="width: 18rem;">
       <img class="card-img-top" src="<%=d.picture%>" alt="Card image cap">
-      <div class="card-body">
+      <div class="card-block">
         <h5 class="card-title"><%= d.name %></h5>
         <p class="card-text">I'm yours!</p>
-        <%= link_to(d.name, "/dogs/#{d.id}", class: "btn btn-primary") %> 
+        <%= link_to("Voting Stats", "/dogs/#{d.id}", class: "btn btn-primary") %> 
         <%= link_to("Edit", "/dogs/#{d.id}/edit", class: "btn btn-primary") %> 
-        <%= link_to("Delete", "/dogs/#{d.id}", {method: 'delete', data: {confirm: "Are you sure?"}}) %>
-        <div class="progress">
-          <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%= @score %>% </div>
-        </div>
+        <%= link_to("Delete", "/dogs/#{d.id}", {method: 'delete', class: "btn btn-primary", data: {confirm: "Are you sure?"}}) %>
       </div>
-    </div>
-      <% end %>
+  </div>
+     <% end %>
     <% end %>
-    <%= link_to("new dog", "/dogs/new", class: "btn btn-primary") %>
-    </ul>
 
 <h2>Dogs you thought were cute: </h2>
 
-<ul>
 <% @user.find_up_voted_items.each do |d| %>
-<div class="card" style="width: 18rem;">
+<div class="card pup-card" style="width: 18rem;">
   <img class="card-img-top" src="<%=d.picture%>" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title"><%= d.name %></h5>
     <p class="card-text">Thanks for your vote!</p>
-    <%= link_to(d.name, "/dogs/#{d.id}", class: "btn btn-primary") %> 
   </div>
 </div>
 <% end %>
-</ul>

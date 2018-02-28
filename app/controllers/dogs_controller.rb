@@ -1,4 +1,6 @@
 class DogsController < ApplicationController
+  before_action :authorize, only: [:edit, :update, :destroy]
+
   def index
     @dogs = Dog.all
   end
@@ -57,9 +59,10 @@ class DogsController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
 
-  def score
-    @dog = Dog.find(params[:id])
-    @score = @dog.get_upvotes.size - @dog.get_downvotes.size
+  def authorize
+    unless logged_in?
+      redirect_to new_session_path
+    end
   end
 
   private

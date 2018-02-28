@@ -11,3 +11,5 @@ https://masteruby.github.io/weekly-rails/2014/08/05/how-to-add-voting-to-rails-a
 https://github.com/ryanto/acts_as_votable
 favicon generator https://www.favicon-generator.org/ 
 background https://www.toptal.com/designers/subtlepatterns/ 
+http://www.colorzilla.com/gradient-editor/
+http://www.colorzilla.com/
