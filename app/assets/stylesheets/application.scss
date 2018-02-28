@@ -8,6 +8,9 @@ body {
     background-size: cover;
 font-family: 'Nanum Myeongjo', serif;
 }
+::selection{
+    background-color: #a8ffad;
+}
 .container {
     align-content: center;
 }
